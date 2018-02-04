@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { CALL_API } from '../middlewares/api';
 
 const SIGNIN_TYPES = [ 'SIGNIN_REQUEST', 'SIGNIN_SUCCESS', 'SIGNIN_FAILURE' ];

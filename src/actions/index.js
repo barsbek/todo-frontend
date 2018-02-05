@@ -14,7 +14,7 @@ export const signIn = params => ({
 export const signUp = params => ({
   [CALL_API]: {
     types: SIGNUP_TYPES,
-    endpoint: '/users',
+    endpoint: '/users/register',
     params
   }
 })

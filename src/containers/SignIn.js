@@ -1,8 +1,49 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import { signIn } from '../actions';
 import SignInForm from '../components/SignInForm';
 
-export default connect(null, {
-  signIn
-})(SignInForm);
+class SignIn extends Component {
+
+  state = {
+    email: "",
+    password: ""
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.signIn({ user: this.state })
+  }
+
+  handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  render() {
+    const { from } = this.props.location.state || { from: '/' };
+    if(this.props.authenticated) {
+      return <Redirect to={from} />
+    }
+
+    return (
+      <SignInForm
+        {...this.state}
+        onSubmit={this.handleSubmit}
+        onChange={this.handleChange}
+      />
+    )
+  }
+}
+
+const mapState = state => ({
+  authenticated: !!state.user.token
+})
+
+export default connect(
+  mapState,
+  { signIn }
+)(SignIn);

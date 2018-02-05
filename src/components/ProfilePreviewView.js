@@ -11,7 +11,7 @@ const ProfilePreviewView = ({
     <img
       src={image}
       alt="avatar"
-      width="200"
+      width="50"
       onClick={toggleMenu}
     />
   </div>

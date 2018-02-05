@@ -17,6 +17,9 @@ export default (state = INITIAL_STATE, action) => {
         error = action.payload;
       }
       return { data: null, token: null, error , loading: false }
+    case 'USER_SIGN_OUT':
+      localStorage.removeItem('user');
+      return { data: null, error: false, loading: false }
     default:
       return state;
   }

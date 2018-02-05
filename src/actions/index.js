@@ -18,3 +18,7 @@ export const signUp = params => ({
     params
   }
 })
+
+export const signOut = () => ({
+  type: 'USER_SIGN_OUT'
+})

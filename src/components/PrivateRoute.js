@@ -16,7 +16,7 @@ const PrivateRoute = ({ component: Component, token, ...rest }) => (
 )
 
 const mapState = state => ({
-  token: state.user.token
-});
+  token: state.user.data && state.user.data.token
+})
 
 export default connect(mapState)(PrivateRoute);

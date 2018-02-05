@@ -1,6 +1,5 @@
 const INITIAL_STATE = {
-  data: null,
-  token: localStorage.getItem('token'),
+  data: JSON.parse(localStorage.getItem('user')),
   error: false,
   loading: false,
 };
@@ -10,9 +9,8 @@ export default (state = INITIAL_STATE, action) => {
     case 'SIGNIN_REQUEST':  
       return {...state, loading: true };
     case 'SIGNIN_SUCCESS':
-      const { token } = action.payload;
-      localStorage.setItem('token', token);
-      return { data: action.payload, token, error: false, loading: false }
+      localStorage.setItem('user', JSON.stringify(action.payload));
+      return { data: action.payload, error: false, loading: false }
     case 'SIGNIN_FAILURE':
       let error = false;
       if(typeof action.payload === 'string'){

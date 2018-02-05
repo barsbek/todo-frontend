@@ -40,7 +40,7 @@ class SignIn extends Component {
 }
 
 const mapState = state => ({
-  authenticated: !!state.user.token
+  authenticated: !!state.user.data
 })
 
 export default connect(

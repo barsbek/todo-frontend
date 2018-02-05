@@ -11,8 +11,7 @@ class SignInForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { email, password } = this.state;
-    this.props.signIn(email, password)
+    this.props.signIn({ user: this.state })
   }
 
   handleChange = e => {

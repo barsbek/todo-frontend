@@ -6,7 +6,7 @@ import Lists from '../containers/Lists';
 
 const Content = () => [
   <Header key='header'/>,
-  <Lists key="lists" />
+  <Lists key="lists" />,
 ]
 
 export default Content;

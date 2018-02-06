@@ -10,7 +10,7 @@ const ListsView = ({
 }) => [
   <div key="lists">
     {lists.map(list => (
-      <List key={list.id || 'new'} {...list} />
+      <List key={list.id} {...list} />
     ))}
   </div>,
   (!withUnsaved &&

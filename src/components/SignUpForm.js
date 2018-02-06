@@ -4,7 +4,8 @@ const SignUpForm = ({
   error,
   validations,
   onChange,
-  onSubmit
+  onSubmit,
+  fields,
 }) => (
   <form onSubmit={onSubmit}>
     {error && <div>{error}</div>}
@@ -12,6 +13,7 @@ const SignUpForm = ({
       <input
         name="name"
         type="text"
+        value={fields.name}
         onChange={onChange}
       />
       {validations["name"] && <span>{validations["name"]}</span>}
@@ -20,6 +22,7 @@ const SignUpForm = ({
       <input
         name="email"
         type="text"
+        value={fields.email}
         onChange={onChange}
       />
       {validations["email"] && <span>{validations["email"]}</span>}
@@ -28,6 +31,7 @@ const SignUpForm = ({
       <input
         name="password"
         type="password"
+        value={fields.password}
         onChange={onChange}
       />
       {validations["password"] && <span>{validations["password"]}</span>}
@@ -36,6 +40,7 @@ const SignUpForm = ({
       <input
         name="password_confirmation"
         type="password"
+        value={fields.password_confirmation}
         onChange={onChange}
       />
       {validations["password_confirmation"] && <span>{validations["password_confirmation"]}</span>}
@@ -43,7 +48,7 @@ const SignUpForm = ({
     
     <input
       type="submit"
-      value="Sign In"
+      value="Sign Up"
     />
   </form>
 )

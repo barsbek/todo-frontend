@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  data: null,
+  registered: false,
   error: false,
   loading: false,
 }
@@ -7,11 +7,11 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case 'SIGNUP_REQUEST':
-      return { ...state, loading: true };
+      return { ...INITIAL_STATE, loading: true };
     case 'SIGNUP_SUCCESS':
-      return { data: action.payload, error: false, loading: false };
+      return { ...INITIAL_STATE, registered: true };
     case 'SIGNUP_FAILURE':
-      return { data: null, error: action.payload, loading: false };
+      return { ...INITIAL_STATE, error: action.payload };
     default:
       return state;
   }

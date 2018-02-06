@@ -33,15 +33,6 @@ export default store => next => action => {
 
   next({ type: requestType });
 
-  axios.interceptors.response.use(response => {
-    return response;
-  }, error => {
-    if(error.response.status === 401) {
-      return next(signOut());
-    }
-    return Promise.reject(error);
-  });
-
   axios({
     url: endpoint,
     baseURL: '/api/v1',
@@ -53,6 +44,10 @@ export default store => next => action => {
     next({ type: successType, payload: res.data })
   })
   .catch(error => {
+    if(error.response.status === 401) {
+      return next(signOut());
+    }
+
     let payload = 'Something went wrong. Try again later';
     const { data } = error.response;
     if(data) {

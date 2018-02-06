@@ -52,13 +52,12 @@ export default store => next => action => {
   .then(res => {
     next({ type: successType, payload: res.data })
   })
-  .catch(({ response }) => {
+  .catch(error => {
     let payload = 'Something went wrong. Try again later';
-
-    if(response.data && typeof response.data === 'object') {
-      const { message } = response.data;
-      if(message) payload = message;
-      else payload = response.data;
+    const { data } = error.response;
+    if(data) {
+      if(data.message) payload = data.message;
+      else payload = data;
     }
     next({ type: failureType, payload });
   })

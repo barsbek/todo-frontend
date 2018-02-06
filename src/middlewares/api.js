@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { signOut } from '../actions';
 
 export const CALL_API = 'CALL_API';
 
@@ -32,6 +33,15 @@ export default store => next => action => {
 
   next({ type: requestType });
 
+  axios.interceptors.response.use(response => {
+    return response;
+  }, error => {
+    if(error.response.status === 401) {
+      return next(signOut());
+    }
+    return Promise.reject(error);
+  });
+
   axios({
     url: endpoint,
     baseURL: '/api/v1',
@@ -42,13 +52,13 @@ export default store => next => action => {
   .then(res => {
     next({ type: successType, payload: res.data })
   })
-  .catch(err => {
+  .catch(({ response }) => {
     let payload = 'Something went wrong. Try again later';
 
-    const { data } = err.response;
-    if(data && typeof data === 'object') {
-      if(data.message) payload = data.message;
-      else payload = data;
+    if(response.data && typeof response.data === 'object') {
+      const { message } = response.data;
+      if(message) payload = message;
+      else payload = response.data;
     }
     next({ type: failureType, payload });
   })

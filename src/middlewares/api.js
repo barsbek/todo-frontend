@@ -52,7 +52,7 @@ export default store => next => action => {
     const { data } = error.response;
     if(data) {
       if(data.message) payload = data.message;
-      else payload = data;
+      else if(typeof object === 'object') payload = data;
     }
     next({ type: failureType, payload });
   })

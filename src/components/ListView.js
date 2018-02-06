@@ -1,15 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import InputWithDelay from './InputWithDelay';
+
 const List = ({
   id,
   title,
   updated_at,
   onDeleteClick,
+  onTitleChange,
 }) => (
   <article>
     <header>
-      <h3>{title}</h3>
+      <h3>
+        <InputWithDelay
+          value={title}
+          onChangeStop={title => onTitleChange(id, { title })}
+        />
+      </h3>
       <button onClick={() => onDeleteClick(id)}>x</button>
     </header>
     <div>
@@ -23,10 +31,10 @@ const List = ({
 );
 
 List.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  updated_at: PropTypes.string.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  title: PropTypes.string,
+  updated_at: PropTypes.string,
+  onDeleteClick: PropTypes.func.isRequired,
+  onTitleChange: PropTypes.func.isRequired,
 }
 
 export default List;

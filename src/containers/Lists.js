@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ListsView from '../components/ListsView';
-import { getLists } from '../actions/lists';
+import { getLists, addNewList } from '../actions/lists';
 
 class Lists extends Component {
   componentWillMount() {
     this.props.getLists();
   }
 
-  render = () => (
-    <ListsView lists={this.props.lists} />
-  )
+  render = () => {
+    const { lists, addNewList } = this.props;
+    const last = lists[lists.length - 1];
+    const withUnsaved = (last && last.id === 'new');
+    return <ListsView
+      lists={lists}
+      addNewList={addNewList}
+      withUnsaved={withUnsaved}
+    />
+  }
 }
 
 const mapState = state => ({
@@ -20,5 +27,5 @@ const mapState = state => ({
 
 export default connect(
   mapState,
-  { getLists }
+  { getLists, addNewList }
 )(Lists);

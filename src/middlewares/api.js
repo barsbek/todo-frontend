@@ -22,6 +22,13 @@ export default store => next => action => {
   }
 
   const [ requestType, successType, failureType ] = types;
+  
+  let headers = {};
+
+  const { user } = store.getState();
+  if(user && user.data) {
+    headers['Authorization'] = `Bearer ${user.data.token}`;
+  }
 
   next({ type: requestType });
 
@@ -30,6 +37,7 @@ export default store => next => action => {
     baseURL: '/api/v1',
     method: apiAction.method || 'post',
     data: apiAction.params,
+    headers
   })
   .then(res => {
     next({ type: successType, payload: res.data })

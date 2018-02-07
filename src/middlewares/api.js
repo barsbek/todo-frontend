@@ -27,7 +27,7 @@ export default store => next => action => {
   let headers = {};
 
   const { user } = store.getState();
-  if(user && user.data) {
+  if(user.data && user.data.token) {
     headers['Authorization'] = `Bearer ${user.data.token}`;
   }
 

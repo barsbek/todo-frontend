@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { handleUpdate } from './list';
+import * as list from './list';
 
 const byId = (state = {}, action) => {
   switch(action.type) {
@@ -8,7 +8,13 @@ const byId = (state = {}, action) => {
     const { lists } = action.payload.entities;
     return {...state, ...lists};
   case 'LIST_UPDATE_SUCCESS':
-    return handleUpdate(state, action);
+    return list.update(state, action);
+  case 'LIST_REMOVE_SUCCESS':
+    return list.destroy(state, action);
+  case 'ADD_NEW_LIST':
+    return list.addNew(state, action);
+  case 'REMOVE_NEW_LIST':
+    return list.removeNew(state, action);
   default:
     return state;
   }
@@ -20,7 +26,13 @@ const ids = (state = [], action) => {
     const { result } = action.payload;
     const withoutDuplications = result.filter(r => state.indexOf(r) < 0);
     return state.concat(withoutDuplications);
-  default: 
+  case 'LIST_REMOVE_SUCCESS':
+    return state.filter(id => id !== action.payload.id);
+  case 'ADD_NEW_LIST':
+    return [...state, 'new'];
+  case 'REMOVE_NEW_LIST':
+    return state.filter(t => t !== 'new');
+  default:
     return state;
   }
 }
@@ -32,6 +44,7 @@ const loading = (state = false, action) => {
   case 'LISTS_GET_FAILURE':
   
   case 'LIST_UPDATE_SUCCESS':
+  case 'LIST_REMOVE_SUCCESS':
   case 'LIST_FAILURE':
     pending.pop();
     return pending.length > 0;
@@ -72,4 +85,8 @@ export const getLists = (state) => {
 
 export const getLoading = (state) => {
   return state.entities.lists.loading;
+}
+
+export const hasNewList = (state) => {
+  return state.entities.lists.ids.indexOf('new') > 0;
 }

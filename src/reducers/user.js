@@ -6,12 +6,12 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case 'SIGNIN_REQUEST':  
+    case 'SIGN_IN_REQUEST':  
       return {...state, loading: true };
-    case 'SIGNIN_SUCCESS':
+    case 'SIGN_IN_SUCCESS':
       localStorage.setItem('user', JSON.stringify(action.payload));
       return { data: action.payload, error: false, loading: false }
-    case 'SIGNIN_FAILURE':
+    case 'SIGN_IN_FAILURE':
       let error = false;
       if(typeof action.payload === 'string'){
         error = action.payload;

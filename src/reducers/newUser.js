@@ -6,11 +6,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case 'SIGNUP_REQUEST':
+    case 'SIGN_UP_REQUEST':
       return { ...INITIAL_STATE, loading: true };
-    case 'SIGNUP_SUCCESS':
+    case 'SIGN_UP_SUCCESS':
       return { ...INITIAL_STATE, registered: true };
-    case 'SIGNUP_FAILURE':
+    case 'SIGN_UP_FAILURE':
       return { ...INITIAL_STATE, error: action.payload };
     default:
       return state;

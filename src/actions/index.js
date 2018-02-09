@@ -1,11 +1,11 @@
 import { CALL_API } from '../middlewares/api';
 
-const SIGNIN_TYPES = [ 'SIGNIN_REQUEST', 'SIGNIN_SUCCESS', 'SIGNIN_FAILURE' ];
-const SIGNUP_TYPES = [ 'SIGNUP_REQUEST', 'SIGNUP_SUCCESS', 'SIGNUP_FAILURE' ];
+const SIGN_IN_TYPES = [ 'SIGN_IN_REQUEST', 'SIGN_IN_SUCCESS', 'SIGN_IN_FAILURE' ];
+const SIGN_UP_TYPES = [ 'SIGN_UP_REQUEST', 'SIGN_UP_SUCCESS', 'SIGN_UP_FAILURE' ];
 
 export const signIn = params => ({
   [CALL_API]: {
-    types: SIGNIN_TYPES,
+    types: SIGN_IN_TYPES,
     endpoint: '/users/authenticate',
     params
   }
@@ -13,7 +13,7 @@ export const signIn = params => ({
 
 export const signUp = params => ({
   [CALL_API]: {
-    types: SIGNUP_TYPES,
+    types: SIGN_UP_TYPES,
     endpoint: '/users/register',
     params
   }

@@ -3,7 +3,7 @@ import { CALL_API } from '../middlewares/api';
 import * as schemas from './schemas';
 
 const LISTS_GET_TYPES = ['LISTS_GET_REQUEST', 'LISTS_GET_SUCCESS', 'LISTS_GET_FAILURE'];
-const LIST_DELETE_TYPES = ['LIST_REQUEST', 'LIST_DELETE_SUCCESS', 'LIST_FAILURE'];
+const LIST_REMOVE_TYPES = ['LIST_REQUEST', 'LIST_REMOVE_SUCCESS', 'LIST_FAILURE'];
 const LIST_CREATE_TYPES = ['LIST_REQUEST', 'LIST_CREATE_SUCCESS', 'LIST_FAILURE'];
 const LIST_UPDATE_TYPES = ['LIST_REQUEST', 'LIST_UPDATE_SUCCESS', 'LIST_FAILURE'];
 
@@ -16,9 +16,9 @@ export const getLists = () => ({
   }
 })
 
-export const deleteList = id => ({
+export const removeList = id => ({
   [CALL_API]: {
-    types: LIST_DELETE_TYPES,
+    types: LIST_REMOVE_TYPES,
     method: 'delete',
     endpoint: `/lists/${id}`
   }
@@ -46,6 +46,6 @@ export const addNewList = () => ({
   type: 'ADD_NEW_LIST'
 })
 
-export const deleteNewList = () => ({
-  type: 'DELETE_NEW_LIST'
+export const removeNewList = () => ({
+  type: 'REMOVE_NEW_LIST'
 })

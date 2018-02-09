@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  deleteList,
+  removeList,
   createList,
   updateList,
-  deleteNewList,
+  removeNewList,
 } from '../actions/lists';
 
 import ListView from '../components/ListView';
@@ -13,11 +13,11 @@ const onTitleChange = (id, params) => (
   id === 'new' ? createList(params) : updateList(id, params)
 )
 
-const onDeleteClick = id => (
-  id == 'new' ? deleteNewList() : deleteList(id)
+const onRemoveClick = id => (
+  id == 'new' ? removeNewList() : removeList(id)
 )
 
 export default connect(
   null,
-  { onDeleteClick, onTitleChange }
+  { onRemoveClick, onTitleChange }
 )(ListView);

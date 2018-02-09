@@ -7,7 +7,7 @@ const List = ({
   id,
   title,
   updated_at,
-  onDeleteClick,
+  onRemoveClick,
   onTitleChange,
 }) => (
   <article>
@@ -18,7 +18,7 @@ const List = ({
           onChangeStop={title => onTitleChange(id, { title })}
         />
       </h3>
-      <button onClick={() => onDeleteClick(id)}>x</button>
+      <button onClick={() => onRemoveClick(id)}>x</button>
     </header>
     <div>
       {/* todos */}
@@ -33,7 +33,7 @@ const List = ({
 List.propTypes = {
   title: PropTypes.string,
   updated_at: PropTypes.string,
-  onDeleteClick: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
 }
 

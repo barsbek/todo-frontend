@@ -1,15 +1,14 @@
 import { combineReducers } from 'redux';
 
+import { handleUpdate } from './list';
+
 const byId = (state = {}, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS': 
-    const nextState = {...state};
-    const { entities, result } = action.payload;
-      // TODO: use lodash's merge function instead
-    result.forEach(id => {
-      nextState[id] = entities.lists[id];
-    });
-    return nextState;
+    const { lists } = action.payload.entities;
+    return {...state, ...lists};
+  case 'LIST_UPDATE_SUCCESS':
+    return handleUpdate(state, action);
   default:
     return state;
   }
@@ -26,13 +25,22 @@ const ids = (state = [], action) => {
   }
 }
 
+let pending = [];
 const loading = (state = false, action) => {
+  const newState = pending.length > 0;
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
   case 'LISTS_GET_FAILURE':
-    return false;
+  
+  case 'LIST_UPDATE_SUCCESS':
+  case 'LIST_FAILURE':
+    pending.pop();
+    return newState;
   case 'LISTS_GET_REQUEST':
-    return true;
+  case 'LIST_REQUEST':
+    pending.push(true);
+    return newState;
+
   default:
     return state;
   }
@@ -41,6 +49,7 @@ const loading = (state = false, action) => {
 const error = (state = null, action) => {
   switch(action.type) {
   case 'LISTS_GET_FAILURE':
+  case 'LIST_FAILURE':
     return action.payload;
   default:
     return state;
@@ -60,4 +69,8 @@ export const getLists = (state) => {
   const { lists } = state.entities;
   const { ids, byId } = lists;
   return ids.map(id => getList(byId, id));
+}
+
+export const getLoading = (state) => {
+  return state.entities.lists.loading;
 }

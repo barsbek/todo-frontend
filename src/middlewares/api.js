@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { normalize } from 'normalizr';
 import { signOut } from '../actions';
 
 export const CALL_API = 'CALL_API';
@@ -9,7 +10,7 @@ export default store => next => action => {
     return next(action);
   }
 
-  const { endpoint, types } = apiAction;
+  const { endpoint, types, schema } = apiAction;
   if(typeof endpoint !== 'string') {
     throw new Error('Specify a string endpoint URL.');
   }
@@ -20,6 +21,10 @@ export default store => next => action => {
 
   if(!types.every(type => typeof type === 'string')) {
     throw new Error('Action type should be string');
+  }
+
+  if(schema && !(typeof schema === 'object')) {
+    throw new Error('Expected schema to be an object');
   }
 
   const [ requestType, successType, failureType ] = types;
@@ -41,20 +46,21 @@ export default store => next => action => {
     headers
   })
   .then(res => {
-    next({ type: successType, payload: res.data })
-  })
-  .catch(error => {
-    if(error.response.status === 401) {
-      return next(signOut());
-    }
-
+    const payload = schema ? normalize(res.data, schema) : res.data;
+    next({ type: successType, payload });
+  }, error => {
+    const { response } = error;
     let payload = 'Something went wrong. Try again later';
-    const { data } = error.response;
+    if(!response) return next({ type: failureType, payload });
+
+    if(response.status === 401) return next(signOut())
+
+    const { data } = response;
     if(data) {
       if(data.message) payload = data.message;
       else if(typeof data === 'object') payload = data;
     }
-    next({ type: failureType, payload });
+    return next({ type: failureType, payload });
   })
 }
 

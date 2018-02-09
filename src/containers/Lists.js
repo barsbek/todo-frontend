@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ListsView from '../components/ListsView';
-import { getLists, addNewList } from '../actions/lists';
+import * as actions from '../actions/lists';
+import { getLists } from '../reducers/lists';
 
 class Lists extends Component {
   componentWillMount() {
@@ -22,10 +23,10 @@ class Lists extends Component {
 }
 
 const mapState = state => ({
-  lists: state.lists.data
+  lists: getLists(state)
 })
 
 export default connect(
   mapState,
-  { getLists, addNewList }
+  { ...actions }
 )(Lists);

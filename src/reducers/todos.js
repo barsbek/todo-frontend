@@ -3,12 +3,11 @@ import { combineReducers } from 'redux';
 const byId = (state = {}, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS': 
-    const nextState = {...state};
-    const { entities, result } = action.payload;
-      // TODO: use lodash's merge function instead
-    result.forEach(id => {
-      nextState[id] = entities.lists[id];
-    });
+    let nextState = {...state};
+    const { todos } = action.payload.entities;
+    for(let id in todos) {
+      nextState[id] = todos[id];
+    }
     return nextState;
   default:
     return state;
@@ -18,9 +17,12 @@ const byId = (state = {}, action) => {
 const ids = (state = [], action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
-    const { result } = action.payload;
-    const withoutDuplications = result.filter(r => state.indexOf(r) < 0);
-    return state.concat(withoutDuplications);
+    const { todos } = action.payload.entities;
+    const newIds = [...state];
+    for(let id in todos) {
+      newIds.indexOf(id) < 0 ? newIds.push(id) : null;
+    }
+    return newIds;
   default: 
     return state;
   }
@@ -52,12 +54,4 @@ export default combineReducers({
   ids,
   loading,
   error,
-});
-
-const getList = (state, id) => state[id];
-
-export const getLists = (state) => {
-  const { lists } = state.entities;
-  const { ids, byId } = lists;
-  return ids.map(id => getList(byId, id));
-}
+})

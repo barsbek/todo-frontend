@@ -42,7 +42,7 @@ const ids = (state = [], action) => {
   }
 }
 
-let pending = [];
+let hasPendings = [];
 const loading = (state = false, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
@@ -51,12 +51,12 @@ const loading = (state = false, action) => {
   case 'LIST_UPDATE_SUCCESS':
   case 'LIST_REMOVE_SUCCESS':
   case 'LIST_FAILURE':
-    pending.pop();
-    return pending.length > 0;
+    hasPendings.pop();
+    return hasPendings.length > 0;
   case 'LISTS_GET_REQUEST':
   case 'LIST_REQUEST':
-    pending.push(true);
-    return pending.length > 0;
+    hasPendings.push(true);
+    return hasPendings.length > 0;
 
   default:
     return state;

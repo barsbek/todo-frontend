@@ -7,6 +7,8 @@ const byId = (state = {}, action) => {
   case 'LISTS_GET_SUCCESS': 
     const { lists } = action.payload.entities;
     return {...state, ...lists};
+  case 'LIST_CREATE_SUCCESS':
+    return list.create(state, action);
   case 'LIST_UPDATE_SUCCESS':
     return list.update(state, action);
   case 'LIST_REMOVE_SUCCESS':
@@ -26,6 +28,9 @@ const ids = (state = [], action) => {
     const { result } = action.payload;
     const withoutDuplications = result.filter(r => state.indexOf(r) < 0);
     return state.concat(withoutDuplications);
+  case 'LIST_CREATE_SUCCESS':
+    const newId = action.payload.id;
+    return state.map(id => id === 'new' ? newId : id);
   case 'LIST_REMOVE_SUCCESS':
     return state.filter(id => id !== action.payload.id);
   case 'ADD_NEW_LIST':

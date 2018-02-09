@@ -1,3 +1,11 @@
+export const create = (state, action) => {
+  const list = action.payload;
+  const newState = {...state};
+  newState[list.id] = list;
+  delete newState['new'];
+  return newState;
+}
+
 export const update = (state, action) => {
   const { result: id, entities } = action.payload;
   return {

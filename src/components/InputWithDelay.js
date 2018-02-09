@@ -6,7 +6,7 @@ class InputWithDelay extends Component {
   constructor(props) {
     super(props);
     this.delay = props.delay || 600;
-    this.state = { value: props.value };
+    this.state = { value: props.value || "" };
   }
 
   static propTypes = {

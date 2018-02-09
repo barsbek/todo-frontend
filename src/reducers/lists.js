@@ -27,7 +27,6 @@ const ids = (state = [], action) => {
 
 let pending = [];
 const loading = (state = false, action) => {
-  const newState = pending.length > 0;
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
   case 'LISTS_GET_FAILURE':
@@ -35,11 +34,11 @@ const loading = (state = false, action) => {
   case 'LIST_UPDATE_SUCCESS':
   case 'LIST_FAILURE':
     pending.pop();
-    return newState;
+    return pending.length > 0;
   case 'LISTS_GET_REQUEST':
   case 'LIST_REQUEST':
     pending.push(true);
-    return newState;
+    return pending.length > 0;
 
   default:
     return state;

@@ -12,7 +12,7 @@ export const getLists = () => ({
     types: LISTS_GET_TYPES,
     method: 'get',
     endpoint: '/lists',
-    schema: schemas.list,
+    schema: schemas.lists,
   }
 })
 

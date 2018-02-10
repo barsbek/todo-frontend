@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputWithDelay from './InputWithDelay';
+import Todos from '../containers/Todos';
 
 const List = ({
   id,
   title,
   updated_at,
+  todos,
   onRemoveClick,
   onTitleChange,
 }) => (
@@ -21,7 +23,7 @@ const List = ({
       <button onClick={() => onRemoveClick(id)}>x</button>
     </header>
     <div>
-      {/* todos */}
+      <Todos ids={todos}/>
     </div>
     <footer>
       <span>Updated at: {updated_at}</span>
@@ -33,6 +35,7 @@ const List = ({
 List.propTypes = {
   title: PropTypes.string,
   updated_at: PropTypes.string,
+  todos: PropTypes.array,
   onRemoveClick: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
 }

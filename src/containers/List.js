@@ -7,6 +7,8 @@ import {
   removeNewList,
 } from '../actions/lists';
 
+import * as todos from '../reducers/todos';
+
 import ListView from '../components/ListView';
 
 const onTitleChange = (id, params) => (

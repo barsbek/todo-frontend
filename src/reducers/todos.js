@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import { getTodo } from './todo';
+
 const byId = (state = {}, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS': 
@@ -28,30 +30,21 @@ const ids = (state = [], action) => {
   }
 }
 
-const loading = (state = false, action) => {
-  switch(action.type) {
-  case 'LISTS_GET_SUCCESS':
-  case 'LISTS_GET_FAILURE':
-    return false;
-  case 'LISTS_GET_REQUEST':
-    return true;
-  default:
-    return state;
-  }
-}
-
-const error = (state = null, action) => {
-  switch(action.type) {
-  case 'LISTS_GET_FAILURE':
-    return action.payload;
-  default:
-    return state;
-  }
-}
-
 export default combineReducers({
   byId,
   ids,
-  loading,
-  error,
-})
+});
+
+export const getAllTodos = (state) => {
+  const { ids, byId } = state.entities.todos;
+  return ids.map(id => getTodo(byId, id));
+}
+
+export const getTodos = (state, ids) => {
+  const { byId } = state.entities.todos;
+  return ids.map(id => getTodo(byId, id));
+}
+
+export const getIds = (state) => {
+  return state.entities.todos.ids;
+}

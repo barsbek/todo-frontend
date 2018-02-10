@@ -7,7 +7,8 @@ import {
   removeNewList,
 } from '../actions/lists';
 
-import * as todos from '../reducers/todos';
+import { addNewTodo } from '../actions/todos';
+import { getTodosIds } from '../reducers/lists';
 
 import ListView from '../components/ListView';
 
@@ -19,7 +20,15 @@ const onRemoveClick = id => (
   id == 'new' ? removeNewList() : removeList(id)
 )
 
+const mapState = (state, ownProps) => ({
+  todoIds: getTodosIds(state, ownProps.id)
+})
+
 export default connect(
-  null,
-  { onRemoveClick, onTitleChange }
+  mapState,
+  {
+    onRemoveClick,
+    onTitleChange,
+    addNewTodo,
+  }
 )(ListView);

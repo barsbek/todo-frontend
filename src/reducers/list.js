@@ -1,3 +1,5 @@
+import { v4 } from 'uuid';
+
 export const create = (state, action) => {
   const list = action.payload;
   const newState = {...state};
@@ -32,3 +34,37 @@ export const removeNew = (state, action) => {
   delete newState['new'];
   return newState;  
 } 
+
+export const addNewTodo = (state, action) => {
+  const { id, list_id } = action.todo;
+  const todoIds = state[list_id];
+  return {
+    ...state,
+    [list_id]: [...todoIds, id],
+  };
+}
+
+export const removeNewTodo = (state, action) => {
+  const { id, list_id } = action.todo;
+  const todos = state[list_id];
+  return {
+    ...state,
+    [list_id]: todos.filter(t => t !== id),
+  }
+}
+
+export const onTodoCreate = (state, action) => {
+  const { id, list_id } = action.payload;
+  const newState = {...state};
+  const list = newState[list_id];
+  list.todos.push(id);
+  return newState;
+}
+
+export const onTodoRemove = (state, action) => {
+  const { id, list_id } = action.payload;
+  const newState = {...state};
+  const list = newState[list_id];
+  list.todos = list.todos.filter(t => t !== id);
+  return newState;
+}

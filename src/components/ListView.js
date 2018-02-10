@@ -8,9 +8,10 @@ const List = ({
   id,
   title,
   updated_at,
-  todos,
+  todoIds,
   onRemoveClick,
   onTitleChange,
+  addNewTodo,
 }) => (
   <article>
     <header>
@@ -23,7 +24,10 @@ const List = ({
       <button onClick={() => onRemoveClick(id)}>x</button>
     </header>
     <div>
-      <Todos ids={todos}/>
+      <Todos ids={todoIds} />
+      <button onClick={() => addNewTodo(id)}>
+        +
+      </button>
     </div>
     <footer>
       <span>Updated at: {updated_at}</span>
@@ -35,9 +39,10 @@ const List = ({
 List.propTypes = {
   title: PropTypes.string,
   updated_at: PropTypes.string,
-  todos: PropTypes.array,
+  todoIds: PropTypes.array,
   onRemoveClick: PropTypes.func.isRequired,
   onTitleChange: PropTypes.func.isRequired,
+  addNewTodo: PropTypes.func.isRequired,
 }
 
 export default List;

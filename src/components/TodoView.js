@@ -5,13 +5,15 @@ import InputWithDelay from './InputWithDelay';
 
 const TodoView = ({
   title,
+  onTitleChange,
+  onRemoveClick,
 }) => (
   <div>
     <InputWithDelay
       value={title}
-      onChangeStop={() => {}}
+      onChangeStop={onTitleChange}
     />
-    <button onClick={() => ({})}>
+    <button onClick={onRemoveClick}>
       x
     </button>
   </div>
@@ -19,6 +21,8 @@ const TodoView = ({
 
 TodoView.propTypes = {
   title: PropTypes.string,
+  onTitleChange: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
 }
 
 export default TodoView;

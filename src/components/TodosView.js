@@ -8,7 +8,7 @@ const TodosView = ({
 }) => (
   <div>
     {todos.map(t => (
-      <Todo key={t.id} {...t} />
+      <Todo key={t.id} todo={t} />
     ))}
   </div>
 )

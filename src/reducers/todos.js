@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { getTodo } from './todo';
+import * as todo from './todo';
 
 const byId = (state = {}, action) => {
   switch(action.type) {
@@ -11,6 +11,17 @@ const byId = (state = {}, action) => {
       nextState[id] = todos[id];
     }
     return nextState;
+
+  case 'TODO_ADD_NEW':
+    return todo.addNew(state, action);
+  case 'TODO_REMOVE_NEW':
+    return todo.removeNew(state, action);
+  case 'TODO_CREATE_SUCCESS':
+    return todo.create(state, action);
+  case 'TODO_UPDATE_SUCCESS':
+    return todo.update(state, action);
+  case 'TODO_REMOVE_SUCCESS':
+    return todo.remove(state, action);
   default:
     return state;
   }
@@ -25,6 +36,11 @@ const ids = (state = [], action) => {
       newIds.indexOf(id) < 0 ? newIds.push(id) : null;
     }
     return newIds;
+
+  case 'TODO_CREATE_SUCCESS':
+    return [...state, action.payload.id];
+  case 'TODO_REMOVE_SUCCESS':
+    return state.filter(id => id !== action.payload.id);
   default: 
     return state;
   }
@@ -34,6 +50,8 @@ export default combineReducers({
   byId,
   ids,
 });
+
+const getTodo = (state, id) => state[id];
 
 export const getAllTodos = (state) => {
   const { ids, byId } = state.entities.todos;

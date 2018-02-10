@@ -17,6 +17,11 @@ const byId = (state = {}, action) => {
     return list.addNew(state, action);
   case 'REMOVE_NEW_LIST':
     return list.removeNew(state, action);
+
+  case 'TODO_CREATE_SUCCESS':
+    return list.onTodoCreate(state, action);
+  case 'TODO_REMOVE_SUCCESS':
+    return list.onTodoRemove(state, action);
   default:
     return state;
   }
@@ -37,6 +42,31 @@ const ids = (state = [], action) => {
     return [...state, 'new'];
   case 'REMOVE_NEW_LIST':
     return state.filter(t => t !== 'new');
+  default:
+    return state;
+  }
+}
+
+const newTodos = (state = {}, action) => {
+  switch(action.type) {
+  case 'LISTS_GET_SUCCESS': {
+    const { lists } = action.payload.entities;
+    let newState = {...state};
+    for(let list_id in lists) {
+      newState[list_id] = [];
+    }
+    return newState;
+  }
+  case 'TODO_ADD_NEW':
+    return list.addNewTodo(state, action);
+  case 'TODO_REMOVE_NEW':
+    return list.removeNewTodo(state, action);
+  case 'TODO_CREATE_SUCCESS': {
+    const { list_id } = action.payload;
+    let newState = {...state};
+    newState[list_id].pop();
+    return newState;
+  }
   default:
     return state;
   }
@@ -76,6 +106,7 @@ const error = (state = null, action) => {
 export default combineReducers({
   byId,
   ids,
+  newTodos,
   loading,
   error,
 });
@@ -93,4 +124,9 @@ export const getLoading = (state) => {
 
 export const hasNewList = (state) => {
   return state.entities.lists.ids.indexOf('new') > 0;
+}
+
+export const getTodosIds = (state, id) => {
+  const { newTodos, byId } = state.entities.lists;
+  return byId[id].todos.concat(newTodos[id]);
 }

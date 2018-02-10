@@ -83,8 +83,7 @@ export default combineReducers({
 const getList = (state, id) => state[id];
 
 export const getLists = (state) => {
-  const { lists } = state.entities;
-  const { ids, byId } = lists;
+  const { ids, byId } = state.entities.lists;
   return ids.map(id => getList(byId, id));
 }
 

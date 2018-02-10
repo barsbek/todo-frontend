@@ -11,6 +11,7 @@ class InputWithDelay extends Component {
 
   static propTypes = {
     delay: PropTypes.number,
+    value: PropTypes.string,
     onChangeStop: PropTypes.func.isRequired,
   }
 

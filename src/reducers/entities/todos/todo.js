@@ -1,5 +1,12 @@
 export const create = (state, action) => {
-  return handleChange(state, action);
+  let newState = {...state};
+  const todo = action.payload;
+  newState[todo.id] = todo;
+  if(action.localParams) {
+    const { id } = action.localParams;
+    delete newState[id];
+  }
+  return newState;
 }
 
 export const update = (state, action) => {

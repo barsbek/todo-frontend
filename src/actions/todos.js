@@ -42,8 +42,8 @@ const removeNewTodo = (todo) => ({
 })
 
 export const handleChange = (todo) => {
-  const { isNew, id, ...params } = todo;
-  return isNew ? createTodo(params) : updateTodo(id, params);
+  const { isNew, id } = todo;
+  return isNew ? createTodo(todo) : updateTodo(id, todo);
 }
 
 export const handleRemove = (todo) => (

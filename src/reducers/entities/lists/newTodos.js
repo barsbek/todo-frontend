@@ -16,9 +16,12 @@ const newTodos = (state = {}, action) => {
     return removeNewTodo(state, action);
   case 'TODO_CREATE_SUCCESS': {
     const { list_id } = action.payload;
-    let newState = {...state};
-    newState[list_id].pop();
-    return newState;
+    const { id: newId } = action.localParams;
+    const ids = state[list_id];
+    return {
+      ...state,
+      [list_id]: ids.filter(id => id !== newId)
+    }
   }
   default:
     return state;

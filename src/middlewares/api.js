@@ -47,7 +47,10 @@ export default store => next => action => {
   })
   .then(res => {
     const payload = schema ? normalize(res.data, schema) : res.data;
-    next({ type: successType, payload });
+    next({
+      type: successType, payload,
+      localParams: apiAction.params
+    });
   }, error => {
     const { response } = error;
     let payload = 'Something went wrong. Try again later';

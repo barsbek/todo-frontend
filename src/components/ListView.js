@@ -23,19 +23,14 @@ const ListView = ({
         styleName="title"
         onChangeStop={title => onTitleChange(id, { title })}
       />
-      <button
-        styleName="remove-button"
-        onClick={() => onRemoveClick(id)}
-      ></button>
+      <button styleName="remove-button" onClick={() => onRemoveClick(id)}>
+      </button>
     </h3>
-    <div>
-      <Todos ids={todoIds} />
-      <button
-        styleName="todo-add-button"
-        onClick={() => addNewTodo(id)}
-      >+</button>
-    </div>
+    <Todos ids={todoIds} />
     <footer>
+      <button styleName="todo-add-button" onClick={() => addNewTodo(id)}>
+        +
+      </button>
       <span styleName="updated-at">
         Updated at {updated_at}
       </span>

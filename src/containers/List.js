@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import {
   removeList,
@@ -17,7 +16,7 @@ const onTitleChange = (id, params) => (
 )
 
 const onRemoveClick = id => (
-  id == 'new' ? removeNewList() : removeList(id)
+  id === 'new' ? removeNewList() : removeList(id)
 )
 
 const mapState = (state, ownProps) => ({

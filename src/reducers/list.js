@@ -1,5 +1,3 @@
-import { v4 } from 'uuid';
-
 export const create = (state, action) => {
   const list = action.payload;
   const newState = {...state};

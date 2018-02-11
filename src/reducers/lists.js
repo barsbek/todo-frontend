@@ -77,7 +77,6 @@ const loading = (state = false, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
   case 'LISTS_GET_FAILURE':
-  
   case 'LIST_UPDATE_SUCCESS':
   case 'LIST_REMOVE_SUCCESS':
   case 'LIST_FAILURE':

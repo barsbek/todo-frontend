@@ -9,11 +9,11 @@ const middlewares = [thunk, api];
 let storeCompose;
 if( process.env.NODE_ENV === 'production') {
   storeCompose = compose(
-    applyMiddleware(thunk, api),
+    applyMiddleware(...middlewares),
   )
 } else {
   storeCompose = compose(
-    applyMiddleware(thunk, api),
+    applyMiddleware(...middlewares),
     DevTools.instrument()
   )
 }

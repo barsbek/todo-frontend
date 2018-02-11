@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
 
 import InputWithDelay from './InputWithDelay';
 import Todos from '../containers/Todos';
 
-const List = ({
+import styles from '../styles/components/List.css';
+
+const ListView = ({
   id,
   title,
   updated_at,
@@ -13,19 +16,23 @@ const List = ({
   onTitleChange,
   addNewTodo,
 }) => (
-  <article>
-    <header>
-      <h3>
-        <InputWithDelay
-          value={title}
-          onChangeStop={title => onTitleChange(id, { title })}
-        />
-      </h3>
-      <button onClick={() => onRemoveClick(id)}>x</button>
-    </header>
+  <article styleName="container">
+    <h3 styleName="header">
+      <InputWithDelay
+        value={title}
+        styleName="title"
+        onChangeStop={title => onTitleChange(id, { title })}
+      />
+      <button
+        styleName="remove-button"
+        onClick={() => onRemoveClick(id)}
+      ></button>
+    </h3>
     <div>
       <Todos ids={todoIds} />
-      <button onClick={() => addNewTodo(id)}>
+      <button
+        onClick={() => addNewTodo(id)}
+      >
         +
       </button>
     </div>
@@ -36,7 +43,7 @@ const List = ({
   </article>
 );
 
-List.propTypes = {
+ListView.propTypes = {
   title: PropTypes.string,
   updated_at: PropTypes.string,
   todoIds: PropTypes.array,
@@ -45,4 +52,4 @@ List.propTypes = {
   addNewTodo: PropTypes.func.isRequired,
 }
 
-export default List;
+export default CSSModules(ListView, styles);

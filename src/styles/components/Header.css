@@ -1,5 +1,5 @@
 .container {
-  composes: spaces from './common.css';
+  composes: spaces from '../common.css';
   box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
   display: flex;
 }

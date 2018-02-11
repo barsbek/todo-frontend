@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CSSModules from 'react-css-modules';
 
-import styles from '../styles/ProfileMenu.css';
+import styles from '../styles/components/ProfileMenu.css';
 
 const ProfileMenuView = ({
   email,

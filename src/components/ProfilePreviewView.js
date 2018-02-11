@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import ProfileMenu from '../containers/ProfileMenu';
-import styles from '../styles/ProfilePreview.css';
+import styles from '../styles/components/ProfilePreview.css';
 
 const ProfilePreviewView = ({
   name,

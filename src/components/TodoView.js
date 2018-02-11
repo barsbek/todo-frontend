@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CSSModules from 'react-css-modules';
 
 import InputWithDelay from './InputWithDelay';
+import styles from '../styles/components/Todo.css';
 
 const TodoView = ({
   title,
   onTitleChange,
   onRemoveClick,
 }) => (
-  <div>
+  <div styleName="container">
     <InputWithDelay
+      styleName="title"
       value={title}
       onChangeStop={onTitleChange}
     />
-    <button onClick={onRemoveClick}>
-      x
+    <button
+      styleName="remove-button"
+      onClick={onRemoveClick}>
     </button>
   </div>
 )
@@ -25,4 +29,4 @@ TodoView.propTypes = {
   onRemoveClick: PropTypes.func.isRequired,
 }
 
-export default TodoView;
+export default CSSModules(TodoView, styles);

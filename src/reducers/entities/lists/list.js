@@ -34,7 +34,7 @@ export const removeNew = (state, action) => {
 } 
 
 export const addNewTodo = (state, action) => {
-  const { id, list_id } = action.todo;
+  const { id, list_id } = action.payload;
   const todoIds = state[list_id];
   return {
     ...state,
@@ -43,7 +43,7 @@ export const addNewTodo = (state, action) => {
 }
 
 export const removeNewTodo = (state, action) => {
-  const { id, list_id } = action.todo;
+  const { id, list_id } = action.payload;
   const todos = state[list_id];
   return {
     ...state,

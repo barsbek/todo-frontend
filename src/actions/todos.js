@@ -31,14 +31,14 @@ const removeTodo = (id) => ({
   }
 })
 
-const removeNewTodo = (todo) => ({
-  type: 'TODO_REMOVE_NEW',
-  todo,
-})
-
 export const addNewTodo = (list_id) => ({
   type: 'TODO_ADD_NEW',
-  todo: { id: v4(), list_id, isNew: true },
+  payload: { id: v4(), list_id, isNew: true },
+})
+
+const removeNewTodo = (todo) => ({
+  type: 'TODO_REMOVE_NEW',
+  payload: todo,
 })
 
 export const handleChange = (todo) => {

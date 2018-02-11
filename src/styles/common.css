@@ -1,0 +1,19 @@
+.spaces {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (max-width: 800px) {
+  .spaces {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+a {
+  color: #888;
+}
+
+a:hover {
+  color: #444;
+}

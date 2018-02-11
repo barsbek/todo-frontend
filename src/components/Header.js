@@ -1,13 +1,13 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
 
 import ProfilePreview from '../containers/ProfilePreview';
-import ProfileMenu from '../containers/ProfileMenu'
+import styles from '../styles/Header.css';
 
 const Header = () => (
-  <header>
+  <header styleName="container">
     <ProfilePreview />
-    <ProfileMenu />
   </header>
 )
 
-export default Header;
+export default CSSModules(Header, styles);

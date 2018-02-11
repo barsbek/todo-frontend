@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import CSSModules from 'react-css-modules';
+
+import styles from '../styles/ProfileMenu.css';
 
 const ProfileMenuView = ({
   email,
   menuOpen
 }) => (
-  <div style={{ display: menuOpen ? 'block' : 'none' }}>
-    <div>{email}</div>
+  <div styleName="container" className={!menuOpen && "hidden"}>
+    <div styleName="name">{email}</div>
     <Link to="/signout">
       Sign out
     </Link>
@@ -19,4 +22,4 @@ ProfileMenuView.propTypes = {
   menuOpen: PropTypes.bool.isRequired,
 }
 
-export default ProfileMenuView;
+export default CSSModules(ProfileMenuView, styles);

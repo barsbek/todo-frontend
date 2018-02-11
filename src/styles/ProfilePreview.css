@@ -1,0 +1,27 @@
+.container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.name {
+  margin-right: 10px;
+}
+
+.avatar {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.avatar:hover {
+  cursor: pointer;
+}
+
+.avatar-image {
+  width: 100%;
+}

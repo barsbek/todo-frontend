@@ -5,6 +5,9 @@ import Root from './components/Root';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
+import "./styles/fonts.css";
+import "./styles/index.css";
+
 ReactDOM.render(
   <Root store={store} />,
   document.getElementById('root')

@@ -1,0 +1,12 @@
+.container {
+  composes: spaces from '../common.css';
+}
+
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new-list-button {
+  
+}

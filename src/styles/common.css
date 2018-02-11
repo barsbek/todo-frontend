@@ -18,6 +18,7 @@
 }
 
 .icon-button {
+  background-color: transparent;
   border-width: 0;
   outline: none;
   opacity: 0.4;
@@ -31,4 +32,12 @@
 .remove-icon-button {
   composes: remove-icon;
   composes: icon-button;
+}
+
+.field {
+  border-width: 0;
+  outline: none;
+  width: 100%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }

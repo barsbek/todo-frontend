@@ -31,14 +31,14 @@ const ListView = ({
     <div>
       <Todos ids={todoIds} />
       <button
+        styleName="todo-add-button"
         onClick={() => addNewTodo(id)}
-      >
-        +
-      </button>
+      >+</button>
     </div>
     <footer>
-      <span>Updated at: {updated_at}</span>
-      <span>color</span>
+      <span styleName="updated-at">
+        Updated at {updated_at}
+      </span>
     </footer>
   </article>
 );

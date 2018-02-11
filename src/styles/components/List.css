@@ -12,7 +12,7 @@
 
 @media (max-width: 600px) {
   .container {
-    width: auto;
+    width: 100%;
   }
 }
 
@@ -21,16 +21,8 @@
   align-items: center;
 }
 
-.field {
-  border-width: 0;
-  outline: none;
-  width: 100%;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
 .title {
-  composes: field;
+  composes: field from '../common.css';
   font-weight: 600;
   padding-right: 4px;
 }
@@ -39,4 +31,21 @@
   composes: remove-icon-button from '../common.css';
   width: 24px;
   height: 24px;
+}
+
+.todo-add-button {
+  composes: icon-button from '../common.css';
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #888;
+}
+
+.todo-add-button:hover {
+  font-weight: 600;
+  color: #333;
+}
+
+.updated-at {
+  color: #666;
 }

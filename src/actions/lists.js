@@ -1,14 +1,11 @@
 import { CALL_API } from '../middlewares/api';
 
 import * as schemas from './schemas';
+import * as list from './list';
 
 const LISTS_GET_TYPES   = ['LISTS_GET_REQUEST', 'LISTS_GET_SUCCESS', 'LISTS_GET_FAILURE'];
 
-const LIST_CREATE_TYPES = ['LIST_REQUEST', 'LIST_CREATE_SUCCESS', 'LIST_FAILURE'];
-const LIST_UPDATE_TYPES = ['LIST_REQUEST', 'LIST_UPDATE_SUCCESS', 'LIST_FAILURE'];
-const LIST_REMOVE_TYPES = ['LIST_REQUEST', 'LIST_REMOVE_SUCCESS', 'LIST_FAILURE'];
-
-export const getLists = () => ({
+export const fetchLists = () => ({
   [CALL_API]: {
     types: LISTS_GET_TYPES,
     method: 'get',
@@ -17,36 +14,12 @@ export const getLists = () => ({
   }
 })
 
-export const createList = params => ({
-  [CALL_API]: {
-    types: LIST_CREATE_TYPES,
-    endpoint: `/lists`,
-    params
-  }
-})
+const isNew = (id) => (id === 'new');
 
-export const updateList = (id, params) => ({
-  [CALL_API]: {
-    types: LIST_UPDATE_TYPES,
-    method: 'put',
-    endpoint: `/lists/${id}`,
-    params,
-    schema: schemas.list,
-  }
-})
+export const handleChange = (id, params) => (
+  isNew(id) ? list.create(params) : list.update(id, params)
+)
 
-export const removeList = id => ({
-  [CALL_API]: {
-    types: LIST_REMOVE_TYPES,
-    method: 'delete',
-    endpoint: `/lists/${id}`
-  }
-})
-
-export const addNewList = () => ({
-  type: 'ADD_NEW_LIST'
-})
-
-export const removeNewList = () => ({
-  type: 'REMOVE_NEW_LIST'
-})
+export const handleRemove = (id) => (
+  isNew(id) ? list.removeNew() : list.remove(id)
+)

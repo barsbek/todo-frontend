@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SignUpForm = ({
   error,
@@ -52,5 +53,13 @@ const SignUpForm = ({
     />
   </form>
 )
+
+SignUpForm.propTypes = {
+  error: PropTypes.string,
+  validations: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  fields: PropTypes.object.isRequired,
+}
 
 export default SignUpForm

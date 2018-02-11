@@ -23,4 +23,9 @@ const SignInForm = ({
   </form>
 )
 
+SignInForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
+
 export default SignInForm;

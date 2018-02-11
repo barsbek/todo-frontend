@@ -3,14 +3,8 @@ import PropTypes from 'prop-types';
 
 import Todo from '../containers/Todo';
 
-const TodosView = ({
-  todos,
-}) => (
-  <div>
-    {todos.map(t => (
-      <Todo key={t.id} todo={t} />
-    ))}
-  </div>
+const TodosView = ({ todos, }) => (
+  todos.map(t => <Todo key={t.id} todo={t} />)
 )
 
 TodosView.propTypes = {

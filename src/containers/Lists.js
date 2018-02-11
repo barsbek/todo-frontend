@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ListsView from '../components/ListsView';
 import * as actions from '../actions/lists';
-import { getLists, getLoading, hasNewList } from '../reducers/lists';
+import { getLists, getLoading, hasNewList } from '../reducers/entities/lists';
 
 class Lists extends Component {
   componentWillMount() {

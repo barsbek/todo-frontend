@@ -7,7 +7,7 @@ import {
 } from '../actions/lists';
 
 import { addNewTodo } from '../actions/todos';
-import { getTodosIds } from '../reducers/lists';
+import { getTodosIds } from '../reducers/entities/lists';
 
 import ListView from '../components/ListView';
 

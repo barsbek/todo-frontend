@@ -1,13 +1,7 @@
 const ids = (state = [], action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS':
-    const { todos } = action.payload.entities;
-    const newIds = [...state];
-    for(let id in todos) {
-      if(newIds.indexOf(id) < 0) newIds.push(id)
-    }
-    return newIds;
-
+    return onTodosGet(state, action);
   case 'TODO_CREATE_SUCCESS':
     return [...state, action.payload.id];
   case 'TODO_REMOVE_SUCCESS':
@@ -18,3 +12,12 @@ const ids = (state = [], action) => {
 }
 
 export default ids;
+
+const onTodosGet = (state, action) => {
+  const { todos } = action.payload.entities;
+  const newIds = [...state];
+  for(let id in todos) {
+    if(newIds.indexOf(id) < 0) newIds.push(id)
+  }
+  return newIds;
+}

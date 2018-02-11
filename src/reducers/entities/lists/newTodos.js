@@ -10,6 +10,9 @@ const newTodos = (state = {}, action) => {
     }
     return newState;
   }
+  case 'LIST_CREATE_SUCCESS':
+    const { id } = action.payload;
+    return { ...state, [id]: [] };
   case 'TODO_ADD_NEW':
     return addNewTodo(state, action);
   case 'TODO_REMOVE_NEW':

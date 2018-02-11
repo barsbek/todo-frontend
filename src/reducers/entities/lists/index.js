@@ -31,5 +31,6 @@ export const hasNewList = (state) => {
 
 export const getTodosIds = (state, id) => {
   const { newTodos, byId } = state.entities.lists;
-  return byId[id].todos.concat(newTodos[id]);
+  const { todos } = byId[id];
+  return todos.concat(newTodos[id] || []);
 }

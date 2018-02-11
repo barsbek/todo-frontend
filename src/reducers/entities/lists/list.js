@@ -22,16 +22,14 @@ export const destroy = (state, action) => {
 }
 
 export const addNew = (state, action) => {
-  const newState = {...state};
-  newState['new'] = {id: 'new'};
-  return newState;
+  return { ...state, new: {id: 'new', todos: []} }
 }
 
 export const removeNew = (state, action) => {
   const newState = {...state};
   delete newState['new'];
   return newState;  
-} 
+}
 
 export const addNewTodo = (state, action) => {
   const { id, list_id } = action.payload;

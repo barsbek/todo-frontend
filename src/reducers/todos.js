@@ -33,7 +33,7 @@ const ids = (state = [], action) => {
     const { todos } = action.payload.entities;
     const newIds = [...state];
     for(let id in todos) {
-      newIds.indexOf(id) < 0 ? newIds.push(id) : null;
+      if(newIds.indexOf(id) < 0) newIds.push(id)
     }
     return newIds;
 

@@ -3,13 +3,8 @@ import * as todo from './todo';
 const byId = (state = {}, action) => {
   switch(action.type) {
   case 'LISTS_GET_SUCCESS': 
-    let nextState = {...state};
     const { todos } = action.payload.entities;
-    for(let id in todos) {
-      nextState[id] = todos[id];
-    }
-    return nextState;
-
+    return { ...state, ...todos }
   case 'TODO_ADD_NEW':
     return todo.addNew(state, action);
   case 'TODO_REMOVE_NEW':

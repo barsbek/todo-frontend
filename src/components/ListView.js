@@ -28,9 +28,10 @@ const ListView = ({
     </h3>
     <Todos ids={todoIds} />
     <footer>
-      <button styleName="todo-add-button" onClick={() => addNewTodo(id)}>
-        +
-      </button>
+      {(id !== 'new') &&
+        <button styleName="todo-add-button" onClick={() => addNewTodo(id)}>
+          +
+        </button>}
       <span styleName="updated-at">
         Updated at {updated_at}
       </span>

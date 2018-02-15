@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
 import InputWithDelay from './InputWithDelay';
+import ButtonRemove from './ButtonRemove';
 import styles from '../styles/components/Todo.css';
 
 const TodoView = ({
@@ -16,10 +17,7 @@ const TodoView = ({
       value={title}
       onChangeStop={onTitleChange}
     />
-    <button
-      styleName="remove-button"
-      onClick={onRemoveClick}>
-    </button>
+    <ButtonRemove onClick={onRemoveClick} />
   </div>
 )
 

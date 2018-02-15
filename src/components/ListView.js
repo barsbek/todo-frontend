@@ -6,6 +6,7 @@ import InputWithDelay from './InputWithDelay';
 import Todos from '../containers/Todos';
 
 import styles from '../styles/components/List.css';
+import RemoveIcon from '../styles/icons/remove.inline.svg';
 
 const ListView = ({
   id,
@@ -24,6 +25,7 @@ const ListView = ({
         onChangeStop={title => onTitleChange(id, { title })}
       />
       <button styleName="remove-button" onClick={() => onRemoveClick(id)}>
+        <RemoveIcon styleName="remove-icon" />
       </button>
     </h3>
     <Todos ids={todoIds} />

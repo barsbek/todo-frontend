@@ -50,3 +50,13 @@
 .updated-at {
   color: #666;
 }
+
+.remove-icon {
+  fill: red;
+  width: 20px;
+  height: 20px;
+}
+
+.remove-icon:hover {
+  fill: rebeccapurple;
+}

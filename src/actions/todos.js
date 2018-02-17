@@ -1,14 +1,19 @@
 import { v4 } from 'uuid';
 
 import { CALL_API } from '../middlewares/api';
-
-const TODO_CREATE_TYPES = ['TODO_REQUEST', 'TODO_CREATE_SUCCESS', 'TODO_FAILURE'];
-const TODO_UPDATE_TYPES = ['TODO_REQUEST', 'TODO_UPDATE_SUCCESS', 'TODO_FAILURE'];
-const TODO_REMOVE_TYPES = ['TODO_REQUEST', 'TODO_REMOVE_SUCCESS', 'TODO_FAILURE'];
+import {
+  TODO_REQUEST,
+  TODO_FAILURE,
+  TODO_CREATE_SUCCESS,
+  TODO_UPDATE_SUCCESS,
+  TODO_REMOVE_SUCCESS,
+  TODO_ADD_NEW,
+  TODO_REMOVE_NEW,
+} from '../constants';
 
 const createTodo = (params) => ({
   [CALL_API]: {
-    types: TODO_CREATE_TYPES,
+    types: [ TODO_REQUEST, TODO_CREATE_SUCCESS, TODO_FAILURE ],
     endpoint: '/todos',
     params,
   }
@@ -16,7 +21,7 @@ const createTodo = (params) => ({
 
 const updateTodo = (id, params) => ({
   [CALL_API]: {
-    types: TODO_UPDATE_TYPES,
+    types: [ TODO_REQUEST, TODO_UPDATE_SUCCESS, TODO_FAILURE ],
     endpoint: `todos/${id}`,
     method: 'put',
     params,
@@ -25,19 +30,19 @@ const updateTodo = (id, params) => ({
 
 const removeTodo = (id) => ({
   [CALL_API]: {
-    types: TODO_REMOVE_TYPES,
+    types: [ TODO_REQUEST, TODO_REMOVE_SUCCESS, TODO_FAILURE ],
     endpoint: `todos/${id}`,
     method: 'delete',
   }
 })
 
 export const addNewTodo = (list_id) => ({
-  type: 'TODO_ADD_NEW',
+  type: TODO_ADD_NEW,
   payload: { id: v4(), list_id, isNew: true },
 })
 
 const removeNewTodo = (todo) => ({
-  type: 'TODO_REMOVE_NEW',
+  type: TODO_REMOVE_NEW,
   payload: todo,
 })
 

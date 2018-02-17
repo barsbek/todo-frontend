@@ -2,12 +2,15 @@ import { CALL_API } from '../middlewares/api';
 
 import * as schemas from './schemas';
 import * as list from './list';
-
-const LISTS_GET_TYPES   = ['LISTS_GET_REQUEST', 'LISTS_GET_SUCCESS', 'LISTS_GET_FAILURE'];
+import {
+  LISTS_GET_REQUEST,
+  LISTS_GET_SUCCESS,
+  LISTS_GET_FAILURE,
+} from '../constants';
 
 export const fetchLists = () => ({
   [CALL_API]: {
-    types: LISTS_GET_TYPES,
+    types: [ LISTS_GET_REQUEST, LISTS_GET_SUCCESS, LISTS_GET_FAILURE ],
     method: 'get',
     endpoint: '/lists',
     schema: schemas.lists,

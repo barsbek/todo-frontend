@@ -1,3 +1,5 @@
+import { TOGGLE_PROFILE_MENU } from '../constants';
+
 const INITIAL_STATE = {
   menuOpen: false,
 }

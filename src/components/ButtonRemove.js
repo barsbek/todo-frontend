@@ -4,11 +4,12 @@ import CSSModules from 'react-css-modules';
 import styles from '../styles/components/ButtonRemove.css';
 import RemoveIcon from '../styles/icons/remove.inline.svg';
 
-const ButtonRemove = ({ onClick }) => (
+const ButtonRemove = ({ onClick, className }) => (
   <button
-    styleName="remove-button"
+    styleName="button"
+    className={className}
     onClick={onClick}>
-      <RemoveIcon className="remove-icon" />
+      <RemoveIcon styleName="icon" />
   </button>
 )
 

@@ -28,12 +28,6 @@
   padding-right: 4px;
 }
 
-.remove-button {
-  composes: remove-icon-button from '../common.css';
-  width: 24px;
-  height: 24px;
-}
-
 .todo-add-button {
   composes: icon-button from '../common.css';
   width: 100%;
@@ -51,12 +45,7 @@
   color: #666;
 }
 
-.remove-icon {
-  fill: red;
-  width: 20px;
-  height: 20px;
-}
-
-.remove-icon:hover {
-  fill: rebeccapurple;
+.remove-button {
+  width: 24px;
+  height: 24px;
 }

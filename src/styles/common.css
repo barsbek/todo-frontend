@@ -1,3 +1,5 @@
+@value primary-color, text-color from './colors.css';
+
 .spaces {
   padding-left: 10px;
   padding-right: 10px;
@@ -10,35 +12,14 @@
   }
 }
 
-.remove-icon {
-  background-color: transparent;
-  background-image: url('./icons/remove.inline.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.icon-button {
-  background-color: transparent;
-  border-width: 0;
-  outline: none;
-  opacity: 0.4;
-}
-
-.icon-button:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-
-.remove-icon-button {
-  composes: remove-icon;
-  composes: icon-button;
-}
-
 .field {
   border-width: 0;
   border-bottom-width: 1px;
+  border-color: primary-color;
   outline: none;
   width: 100%;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  background-color: transparent;
+  color: text-color;
 }

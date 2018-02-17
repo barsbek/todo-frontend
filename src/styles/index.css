@@ -1,3 +1,5 @@
+@value secondary-color, text-color from './colors.css';
+
 * {
   padding: 0;
   margin: 0;
@@ -7,6 +9,8 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  background-color: secondary-color;
+  color: text-color;
 }
 
 :global(.hidden) {
@@ -20,3 +24,4 @@ a {
 a:hover {
   color: #444;
 }
+

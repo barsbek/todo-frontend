@@ -1,6 +1,22 @@
-.remove-button {
-  
+@value primary-color from '../colors.css';
+
+.button {
+  background-color: transparent;
+  border-width: 0;
+  outline: none;
+  transition: opacity .4s;
 }
-.remove-icon {
-  
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:hover .icon {
+  fill: #95ffee;
+}
+
+.icon {
+  max-width: 100%;
+  max-height: 100%;
+  fill: primary-color;
 }

@@ -20,21 +20,22 @@ export const create = params => ({
   }
 })
 
-export const update = (id, params) => ({
+export const update = (params) => ({
   [CALL_API]: {
     types: [ LIST_REQUEST, LIST_UPDATE_SUCCESS, LIST_FAILURE ],
     method: 'put',
-    endpoint: `/lists/${id}`,
+    endpoint: `/lists/${params.id}`,
     params,
     schema: schemas.list,
   }
 })
 
-export const remove = id => ({
+export const remove = (params) => ({
   [CALL_API]: {
     types: [ LIST_REQUEST, LIST_REMOVE_SUCCESS, LIST_FAILURE ],
     method: 'delete',
-    endpoint: `/lists/${id}`
+    endpoint: `/lists/${params.id}`,
+    params,
   }
 })
 

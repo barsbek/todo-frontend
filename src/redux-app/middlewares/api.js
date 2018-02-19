@@ -36,7 +36,9 @@ export default store => next => action => {
     headers['Authorization'] = `Bearer ${user.data.token}`;
   }
 
-  next({ type: requestType });
+  const request = apiAction.params;
+
+  next({ type: requestType, request });
 
   axios({
     url: endpoint,
@@ -46,10 +48,11 @@ export default store => next => action => {
     headers
   })
   .then(res => {
-    const payload = schema ? normalize(res.data, schema) : res.data;
+    const response = schema ? normalize(res.data, schema) : res.data;
     next({
-      type: successType, payload,
-      localParams: apiAction.params
+      type: successType,
+      request,
+      response,
     });
   }, error => {
     const { response } = error;
@@ -63,7 +66,11 @@ export default store => next => action => {
       if(data.message) payload = data.message;
       else if(typeof data === 'object') payload = data;
     }
-    return next({ type: failureType, payload });
+    return next({
+      type: failureType,
+      request,
+      response: payload,
+    });
   })
 }
 

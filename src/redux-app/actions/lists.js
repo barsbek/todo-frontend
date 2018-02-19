@@ -19,10 +19,10 @@ export const fetchLists = () => ({
 
 const isNew = (id) => (id === 'new');
 
-export const handleChange = (id, params) => (
-  isNew(id) ? list.create(params) : list.update(id, params)
+export const handleChange = (params) => (
+  isNew(params.id) ? list.create(params) : list.update(params)
 )
 
-export const handleRemove = (id) => (
-  isNew(id) ? list.removeNew() : list.remove(id)
+export const handleRemove = (params) => (
+  isNew(params.id) ? list.removeNew() : list.remove(params)
 )

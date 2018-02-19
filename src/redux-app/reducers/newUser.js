@@ -17,7 +17,7 @@ export default (state = INITIAL_STATE, action) => {
     case SIGN_UP_SUCCESS:
       return { ...INITIAL_STATE, registered: true };
     case SIGN_UP_FAILURE:
-      return { ...INITIAL_STATE, error: action.payload };
+      return { ...INITIAL_STATE, error: action.response };
     default:
       return state;
   }

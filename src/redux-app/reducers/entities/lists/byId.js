@@ -1,6 +1,8 @@
 import * as list from './list';
 import {
   LISTS_GET_SUCCESS,
+
+  LIST_REQUEST,
   LIST_CREATE_SUCCESS,
   LIST_UPDATE_SUCCESS,
   LIST_REMOVE_SUCCESS,
@@ -13,9 +15,11 @@ import {
 
 export const byId = (state = {}, action) => {
   switch(action.type) {
-  case LISTS_GET_SUCCESS: 
-    const { lists } = action.payload.entities;
+  case LISTS_GET_SUCCESS:
+    const { lists } = action.response.entities;
     return {...state, ...lists};
+  case LIST_REQUEST:
+    return list.onRequest(state, action);
   case LIST_CREATE_SUCCESS:
     return list.create(state, action);
   case LIST_UPDATE_SUCCESS:

@@ -9,9 +9,9 @@ const ids = (state = [], action) => {
   case LISTS_GET_SUCCESS:
     return onTodosGet(state, action);
   case TODO_CREATE_SUCCESS:
-    return [...state, action.payload.id];
+    return [...state, action.response.id];
   case TODO_REMOVE_SUCCESS:
-    return state.filter(id => id !== action.payload.id);
+    return state.filter(id => id !== action.response.id);
   default: 
     return state;
   }
@@ -20,7 +20,7 @@ const ids = (state = [], action) => {
 export default ids;
 
 const onTodosGet = (state, action) => {
-  const { todos } = action.payload.entities;
+  const { todos } = action.response.entities;
   const newIds = [...state];
   for(let id in todos) {
     if(newIds.indexOf(id) < 0) newIds.push(id)

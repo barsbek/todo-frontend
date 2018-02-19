@@ -3,11 +3,10 @@ import {
   LIST_FAILURE,
 } from 'redux-app/constants';
 
-const error = (state = null, action) => {
+const error = (state = false, action) => {
   switch(action.type) {
   case LISTS_GET_FAILURE:
-  case LIST_FAILURE:
-    return action.payload;
+    return action.response;
   default:
     return state;
   }

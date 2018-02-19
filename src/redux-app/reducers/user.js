@@ -16,12 +16,12 @@ export default (state = INITIAL_STATE, action) => {
     case SIGN_IN_REQUEST:  
       return { ...state, loading: true };
     case SIGN_IN_SUCCESS:
-      localStorage.setItem('user', JSON.stringify(action.payload));
-      return { data: action.payload, error: false, loading: false }
+      localStorage.setItem('user', JSON.stringify(action.response));
+      return { data: action.response, error: false, loading: false }
     case SIGN_IN_FAILURE:
       let error = false;
-      if(typeof action.payload === 'string'){
-        error = action.payload;
+      if(typeof action.response === 'string'){
+        error = action.response;
       }
       return { data: null, error , loading: false }
     case USER_SIGN_OUT:

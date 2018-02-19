@@ -16,17 +16,17 @@ const ListView = ({
   onRemoveClick,
   onTitleChange,
   addNewTodo,
+  loading,
 }) => (
   <article styleName="container">
     <h3 styleName="header">
       <InputWithDelay
         value={title}
         styleName="title"
-        onChangeStop={title => onTitleChange(id, { title })}
+        onChangeStop={title => onTitleChange({ id, title })}
       />
       <ButtonRemove
-        styleName="remove-button"
-        onClick={() => onRemoveClick(id)} />
+        onClick={() => onRemoveClick({ id })} />
     </h3>
     <Todos ids={todoIds} />
     <footer>

@@ -1,5 +1,12 @@
+export const onRequest = (state, action) => {
+  const { id } = action.request;
+  const newState = { ...state };
+  newState[id].loading = true;
+  return newState;
+}
+
 export const create = (state, action) => {
-  const list = action.payload;
+  const list = action.response;
   const newState = {...state};
   newState[list.id] = list;
   delete newState['new'];
@@ -7,7 +14,7 @@ export const create = (state, action) => {
 }
 
 export const update = (state, action) => {
-  const { result: id, entities } = action.payload;
+  const { result: id, entities } = action.response;
   return {
     ...state,
     [id]: entities.lists[id]
@@ -15,7 +22,7 @@ export const update = (state, action) => {
 }
 
 export const destroy = (state, action) => {
-  const { id } = action.payload;
+  const { id } = action.response;
   const newState = { ...state };
   delete newState[id];
   return newState;
@@ -32,7 +39,7 @@ export const removeNew = (state, action) => {
 }
 
 export const addNewTodo = (state, action) => {
-  const { id, list_id } = action.payload;
+  const { id, list_id } = action.todo;
   const todoIds = state[list_id];
   return {
     ...state,
@@ -41,7 +48,7 @@ export const addNewTodo = (state, action) => {
 }
 
 export const removeNewTodo = (state, action) => {
-  const { id, list_id } = action.payload;
+  const { id, list_id } = action.todo;
   const todos = state[list_id];
   return {
     ...state,
@@ -50,7 +57,7 @@ export const removeNewTodo = (state, action) => {
 }
 
 export const onTodoCreate = (state, action) => {
-  const { id, list_id } = action.payload;
+  const { id, list_id } = action.response;
   const newState = {...state};
   const list = newState[list_id];
   list.todos.push(id);
@@ -58,7 +65,7 @@ export const onTodoCreate = (state, action) => {
 }
 
 export const onTodoRemove = (state, action) => {
-  const { id, list_id } = action.payload;
+  const { id, list_id } = action.response;
   const newState = {...state};
   const list = newState[list_id];
   list.todos = list.todos.filter(t => t !== id);

@@ -11,7 +11,7 @@ import {
 const byId = (state = {}, action) => {
   switch(action.type) {
   case LISTS_GET_SUCCESS: 
-    const { todos } = action.payload.entities;
+    const { todos } = action.response.entities;
     return { ...state, ...todos }
   case TODO_CREATE_SUCCESS:
     return todo.create(state, action);

@@ -1,7 +1,7 @@
 import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import ProfilePreview from '../ProfilePreview';
+import ProfilePreview from './components/ProfilePreview';
 import styles from './styles.css';
 
 const Header = () => (

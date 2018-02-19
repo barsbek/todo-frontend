@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import { handleChange, handleRemove } from '../../actions/lists';
-import { addNewTodo } from '../../actions/todos';
-import { getTodosIds } from '../../reducers/entities/lists';
+import { handleChange, handleRemove } from 'actions/lists';
+import { addNewTodo } from 'actions/todos';
+import { getTodosIds } from 'reducers/entities/lists';
 
 import ListView from './View';
 

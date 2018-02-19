@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import InputWithDelay from '../InputWithDelay';
-import ButtonRemove from '../ButtonRemove';
+import InputWithDelay from 'components/InputWithDelay';
+import ButtonRemove from 'components/ButtonRemove';
 import styles from './styles.css';
 
 const TodoView = ({

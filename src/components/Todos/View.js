@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import Todo from '../Todo';
+import Todo from './components/Todo';
 import styles from "./styles.css";
 
 const TodosView = ({ todos, }) => (

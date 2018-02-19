@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import InputWithDelay from '../InputWithDelay';
-import Todos from '../Todos';
+import InputWithDelay from 'components/InputWithDelay';
+import Todos from 'components/Todos';
 
 import styles from './styles.css';
-import ButtonRemove from '../ButtonRemove';
+import ButtonRemove from 'components/ButtonRemove';
 
 const ListView = ({
   id,

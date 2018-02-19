@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CSSModules from 'react-css-modules';
 
-import List from '../List';
+import List from './components/List';
 import styles from './styles.css';
 
 const ListsView = ({

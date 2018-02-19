@@ -1,10 +1,12 @@
 .container {
+  composes: spaces from 'styles/common.css';
   margin-left: auto;
   display: flex;
   align-items: center;
   position: relative;
   padding-top: 10px;
   padding-bottom: 10px;
+
 }
 
 .name {

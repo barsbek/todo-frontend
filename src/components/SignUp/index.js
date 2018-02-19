@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import SignUpForm from '../components/SignUpForm';
-import { signUp } from '../actions';
+import SignUpView from './View';
+import { signUp } from '../../actions';
 
 const INITIAL_STATE = {
   name: "",
@@ -37,7 +37,7 @@ class SignUp extends Component {
 
     if(registered) return <Redirect to={"/"} />
     return (
-      <SignUpForm
+      <SignUpView
         fields={this.state}
         error={error}
         validations={validations}

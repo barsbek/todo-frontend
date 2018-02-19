@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { signIn } from '../actions';
-import SignInForm from '../components/SignInForm';
+import { signIn } from '../../actions';
+import SignInView from './View';
 
 class SignIn extends Component {
 
@@ -30,7 +30,7 @@ class SignIn extends Component {
     }
 
     return (
-      <SignInForm
+      <SignInView
         {...this.state}
         onSubmit={this.handleSubmit}
         onChange={this.handleChange}

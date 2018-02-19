@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import reducers from '../reducers';
 import api from '../middlewares/api';
-import DevTools from '../containers/DevTools';
+import DevTools from '../components/DevTools';
 
 const middlewares = [thunk, api];
 let storeCompose;

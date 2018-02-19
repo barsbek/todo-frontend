@@ -1,11 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import App from './App';
+import DevTools from '../DevTools';
+import App from '../App';
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <App />
+    <div>
+      <App />
+      <DevTools />
+    </div>
   </Provider>
 )
 

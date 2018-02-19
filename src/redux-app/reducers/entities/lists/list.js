@@ -1,8 +1,9 @@
 export const onRequest = (state, action) => {
   const { id } = action.request;
-  const newState = { ...state };
-  newState[id].loading = true;
-  return newState;
+  return {
+    ...state,
+    [id]: { ...state[id], isFetching: true }
+  }
 }
 
 export const create = (state, action) => {

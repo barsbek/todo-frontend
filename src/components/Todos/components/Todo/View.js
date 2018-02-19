@@ -8,6 +8,7 @@ import styles from './styles.css';
 
 const TodoView = ({
   title,
+  isFetching,
   onTitleChange,
   onRemoveClick,
 }) => (
@@ -23,6 +24,7 @@ const TodoView = ({
 
 TodoView.propTypes = {
   title: PropTypes.string,
+  isFetching: PropTypes.bool,
   onTitleChange: PropTypes.func.isRequired,
   onRemoveClick: PropTypes.func.isRequired,
 }

@@ -1,6 +1,8 @@
 import * as todo from './todo';
 import {
   LISTS_GET_SUCCESS,
+
+  TODO_REQUEST,
   TODO_CREATE_SUCCESS,
   TODO_UPDATE_SUCCESS,
   TODO_REMOVE_SUCCESS,
@@ -13,6 +15,8 @@ const byId = (state = {}, action) => {
   case LISTS_GET_SUCCESS: 
     const { todos } = action.response.entities;
     return { ...state, ...todos }
+  case TODO_REQUEST:
+    return todo.onRequest(state, action);
   case TODO_CREATE_SUCCESS:
     return todo.create(state, action);
   case TODO_UPDATE_SUCCESS:

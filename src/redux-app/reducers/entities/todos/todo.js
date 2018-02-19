@@ -1,3 +1,11 @@
+export const onRequest = (state, action) => {
+  const { id } = action.request;
+  return {
+    ...state,
+    [id]: { ...state[id], isFetching: true }
+  };
+}
+
 export const create = (state, action) => {
   let newState = {...state};
   const todo = action.response;
@@ -10,19 +18,11 @@ export const create = (state, action) => {
 }
 
 export const update = (state, action) => {
-  return handleChange(state, action);
-}
-
-export const remove = (state, action) => {
-  return handleRemove(state, action);
-}
-
-const handleChange = (state, action) => {
   const todo = action.response;
   return { ...state, [todo.id]: todo }
 }
 
-export const handleRemove = (state, action) => {
+export const remove = (state, action) => {
   const newState = { ...state };
   const { id } = action.response;
   delete newState[id];

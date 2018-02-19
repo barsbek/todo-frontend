@@ -16,7 +16,7 @@ const ListView = ({
   onRemoveClick,
   onTitleChange,
   addNewTodo,
-  loading,
+  isFetching,
 }) => (
   <article styleName="container">
     <h3 styleName="header">

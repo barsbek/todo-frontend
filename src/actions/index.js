@@ -10,7 +10,7 @@ import {
   SIGN_UP_FAILURE,
 
   USER_SIGN_OUT,
-} from '../constants';
+} from 'constants/actionTypes';
 
 export const signIn = params => ({
   [CALL_API]: {

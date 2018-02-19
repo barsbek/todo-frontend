@@ -9,7 +9,7 @@ import {
   TODO_REMOVE_SUCCESS,
   TODO_ADD_NEW,
   TODO_REMOVE_NEW,
-} from '../constants';
+} from 'constants/actionTypes';
 
 const createTodo = (params) => ({
   [CALL_API]: {

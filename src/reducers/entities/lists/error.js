@@ -1,7 +1,7 @@
 import {
   LISTS_GET_FAILURE,
   LIST_FAILURE,
-} from '../../../constants';
+} from 'constants/actionTypes';
 
 const error = (state = null, action) => {
   switch(action.type) {

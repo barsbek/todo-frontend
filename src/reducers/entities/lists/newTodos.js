@@ -4,7 +4,7 @@ import {
   TODO_CREATE_SUCCESS,
   TODO_ADD_NEW,
   TODO_REMOVE_NEW,
-} from '../../../constants';
+} from 'constants/actionTypes';
 
 import { addNewTodo, removeNewTodo } from './list';
 

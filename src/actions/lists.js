@@ -6,7 +6,7 @@ import {
   LISTS_GET_REQUEST,
   LISTS_GET_SUCCESS,
   LISTS_GET_FAILURE,
-} from '../constants';
+} from 'constants/actionTypes';
 
 export const fetchLists = () => ({
   [CALL_API]: {

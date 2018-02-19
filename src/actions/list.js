@@ -9,7 +9,7 @@ import {
   LIST_REMOVE_SUCCESS,
   LIST_ADD_NEW,
   LIST_REMOVE_NEW,
-} from '../constants';
+} from 'constants/actionTypes';
 
 export const create = params => ({
   [CALL_API]: {

@@ -6,7 +6,7 @@ import {
   LIST_FAILURE,
   LISTS_GET_REQUEST,
   LIST_REQUEST,
-} from '../../../constants';
+} from 'constants/actionTypes';
 
 let hasPendings = [];
 

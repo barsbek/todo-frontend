@@ -3,7 +3,7 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_IN_FAILURE,
   USER_SIGN_OUT,
-} from '../constants';
+} from 'constants/actionTypes';
 
 const INITIAL_STATE = {
   data: JSON.parse(localStorage.getItem('user')),

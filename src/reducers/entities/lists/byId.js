@@ -9,7 +9,7 @@ import {
 
   TODO_CREATE_SUCCESS,
   TODO_REMOVE_SUCCESS,
-} from '../../../constants';
+} from 'constants/actionTypes';
 
 export const byId = (state = {}, action) => {
   switch(action.type) {

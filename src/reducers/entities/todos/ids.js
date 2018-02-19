@@ -2,7 +2,7 @@ import {
   LISTS_GET_SUCCESS,
   TODO_CREATE_SUCCESS,
   TODO_REMOVE_SUCCESS,
-} from '../../../constants';
+} from 'constants/actionTypes';
 
 const ids = (state = [], action) => {
   switch(action.type) {

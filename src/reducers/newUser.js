@@ -2,7 +2,7 @@ import {
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAILURE,
-} from '../constants';
+} from 'constants/actionTypes';
 
 const INITIAL_STATE = {
   registered: false,

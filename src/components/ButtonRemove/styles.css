@@ -1,4 +1,4 @@
-@value primary-color from '../../styles/colors.css';
+@value primary-color from 'styles/colors.css';
 
 .button {
   background-color: transparent;

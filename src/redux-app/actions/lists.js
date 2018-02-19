@@ -1,8 +1,8 @@
-import { CALL_API } from 'redux-app/constants';
-
 import * as schemas from './schemas';
 import * as list from './list';
 import {
+  CALL_API,
+
   LISTS_GET_REQUEST,
   LISTS_GET_SUCCESS,
   LISTS_GET_FAILURE,

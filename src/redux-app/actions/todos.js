@@ -1,7 +1,8 @@
 import { v4 } from 'uuid';
 
-import { CALL_API } from 'redux-app/constants';
 import {
+  CALL_API,
+
   TODO_REQUEST,
   TODO_FAILURE,
   TODO_CREATE_SUCCESS,

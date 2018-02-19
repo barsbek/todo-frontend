@@ -1,6 +1,6 @@
-import { CALL_API } from 'redux-app/constants';
-
 import {
+  CALL_API,
+
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAILURE,

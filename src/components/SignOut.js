@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { signOut } from '../actions';
+import { signOut } from '../redux-app/actions';
 
 class SignOut extends Component {
   componentWillMount() {

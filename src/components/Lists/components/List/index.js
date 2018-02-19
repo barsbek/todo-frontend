@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import { handleChange, handleRemove } from 'redux-app/actions/lists';
 import { addNewTodo } from 'redux-app/actions/todos';
-import { getTodosIds } from 'redux-app/reducer/entities/lists';
+import { getTodosIds } from './state';
 
 import ListView from './View';
 

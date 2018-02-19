@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import SignUpView from './View';
-import { signUp } from 'actions';
+import { signUp } from 'redux-app/actions';
 
 const INITIAL_STATE = {
   name: "",

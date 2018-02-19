@@ -1,4 +1,4 @@
-import { CALL_API } from '../middlewares/api';
+import { CALL_API } from 'redux-app/constants';
 
 import {
   SIGN_IN_REQUEST,
@@ -10,7 +10,7 @@ import {
   SIGN_UP_FAILURE,
 
   USER_SIGN_OUT,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 export const signIn = params => ({
   [CALL_API]: {

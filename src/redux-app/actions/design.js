@@ -1,6 +1,6 @@
 import {
   TOGGLE_PROFILE_MENU
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 export const toggleProfileMenu = () => ({
   type: TOGGLE_PROFILE_MENU

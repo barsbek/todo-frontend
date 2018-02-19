@@ -2,7 +2,7 @@ import axios from 'axios';
 import { normalize } from 'normalizr';
 import { signOut } from '../actions';
 
-export const CALL_API = 'CALL_API';
+import { CALL_API } from 'redux-app/constants';
 
 export default store => next => action => {
   const apiAction = action[CALL_API];

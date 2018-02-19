@@ -1,4 +1,4 @@
-import { TOGGLE_PROFILE_MENU } from 'constants/actionTypes';
+import { TOGGLE_PROFILE_MENU } from 'redux-app/constants';
 
 const INITIAL_STATE = {
   menuOpen: false,

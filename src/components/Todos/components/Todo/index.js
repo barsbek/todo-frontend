@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import TodoView from './View.js';
 
-import { handleChange, handleRemove } from 'actions/todos';
+import { handleChange, handleRemove } from 'redux-app/actions/todos';
 
 class Todo extends Component {
   static propTypes = {

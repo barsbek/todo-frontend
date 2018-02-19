@@ -1,4 +1,4 @@
-import { CALL_API } from '../middlewares/api';
+import { CALL_API } from 'redux-app/constants';
 import * as schemas from './schemas';
 
 import {
@@ -9,7 +9,7 @@ import {
   LIST_REMOVE_SUCCESS,
   LIST_ADD_NEW,
   LIST_REMOVE_NEW,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 export const create = params => ({
   [CALL_API]: {

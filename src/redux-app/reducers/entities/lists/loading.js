@@ -6,7 +6,7 @@ import {
   LIST_FAILURE,
   LISTS_GET_REQUEST,
   LIST_REQUEST,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 let hasPendings = [];
 

@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 
-import { CALL_API } from '../middlewares/api';
+import { CALL_API } from 'redux-app/constants';
 import {
   TODO_REQUEST,
   TODO_FAILURE,
@@ -9,7 +9,7 @@ import {
   TODO_REMOVE_SUCCESS,
   TODO_ADD_NEW,
   TODO_REMOVE_NEW,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 const createTodo = (params) => ({
   [CALL_API]: {

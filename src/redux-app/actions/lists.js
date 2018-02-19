@@ -1,4 +1,4 @@
-import { CALL_API } from '../middlewares/api';
+import { CALL_API } from 'redux-app/constants';
 
 import * as schemas from './schemas';
 import * as list from './list';
@@ -6,7 +6,7 @@ import {
   LISTS_GET_REQUEST,
   LISTS_GET_SUCCESS,
   LISTS_GET_FAILURE,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 export const fetchLists = () => ({
   [CALL_API]: {

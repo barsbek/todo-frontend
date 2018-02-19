@@ -2,7 +2,7 @@ import {
   SIGN_UP_REQUEST,
   SIGN_UP_SUCCESS,
   SIGN_UP_FAILURE,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 const INITIAL_STATE = {
   registered: false,

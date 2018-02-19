@@ -2,7 +2,7 @@ import {
   LISTS_GET_SUCCESS,
   TODO_CREATE_SUCCESS,
   TODO_REMOVE_SUCCESS,
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 const ids = (state = [], action) => {
   switch(action.type) {

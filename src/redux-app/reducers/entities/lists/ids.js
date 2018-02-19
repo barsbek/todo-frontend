@@ -4,7 +4,7 @@ import {
   LIST_REMOVE_SUCCESS,
   LIST_ADD_NEW,
   LIST_REMOVE_NEW
-} from 'constants/actionTypes';
+} from 'redux-app/constants';
 
 const ids = (state = [], action) => {
   switch(action.type) {

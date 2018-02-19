@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ListsView from '../components/ListsView';
-import { addNew } from '../actions/list';
-import { fetchLists } from '../actions/lists';
-import { getLists, getLoading, hasNewList } from '../reducers/entities/lists';
+import ListsView from './View';
+import { addNew } from '../../actions/list';
+import { fetchLists } from '../../actions/lists';
+import { getLists, getLoading, hasNewList } from '../../reducers/entities/lists';
 
 class Lists extends Component {
   componentWillMount() {

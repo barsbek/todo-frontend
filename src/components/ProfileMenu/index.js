@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ProfileMenuView from '../components/ProfileMenuView';
+import ProfileMenuView from './View';
 
 const mapState = state => ({
   email: state.user.data.email,

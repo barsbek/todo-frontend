@@ -1,5 +1,4 @@
 .container {
-  composes: spaces from '../common.css';
 }
 
 .lists {
@@ -8,7 +7,6 @@
 }
 
 .new-list-button {
-  composes: icon-button from '../common.css';
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;

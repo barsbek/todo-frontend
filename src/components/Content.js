@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Header from '../components/Header';
-import Lists from '../containers/Lists';
+import Header from './Header';
+import Lists from './Lists';
 
 const Content = () => [
   <Header key='header'/>,

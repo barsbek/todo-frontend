@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import TodoView from '../components/TodoView.js';
+import TodoView from './View.js';
 
-import { handleChange, handleRemove } from '../actions/todos';
+import { handleChange, handleRemove } from '../../actions/todos';
 
 class Todo extends Component {
   static propTypes = {

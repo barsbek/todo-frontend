@@ -23,13 +23,11 @@
 }
 
 .title {
-  composes: field from '../common.css';
   font-weight: 600;
   padding-right: 4px;
 }
 
 .todo-add-button {
-  composes: icon-button from '../common.css';
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;

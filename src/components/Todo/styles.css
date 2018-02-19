@@ -4,11 +4,9 @@
 }
 
 .title {
-  composes: field from '../common.css';
 }
 
 .remove-button {
-  composes: remove-icon-button from '../common.css';
   width: 20px;
   height: 20px;
   opacity: 0.05;

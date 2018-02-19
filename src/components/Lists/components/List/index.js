@@ -3,9 +3,13 @@ import moment from 'moment';
 
 import { handleChange, handleRemove } from 'redux-app/actions/lists';
 import { addNewTodo } from 'redux-app/actions/todos';
-import { getTodosIds } from './state';
-
 import ListView from './View';
+
+export const getTodosIds = (state, id) => {
+  const { newTodos, byId } = state.entities.lists;
+  const { todos } = byId[id];
+  return todos.concat(newTodos[id] || []);
+}
 
 const mapState = (state, ownProps) => ({
   todoIds: getTodosIds(state, ownProps.id),

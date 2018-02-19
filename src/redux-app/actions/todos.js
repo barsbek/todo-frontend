@@ -12,7 +12,7 @@ import {
   TODO_REMOVE_NEW,
 } from 'redux-app/constants';
 
-const createTodo = (params) => ({
+const create = (params) => ({
   [CALL_API]: {
     types: [ TODO_REQUEST, TODO_CREATE_SUCCESS, TODO_FAILURE ],
     endpoint: '/todos',
@@ -20,20 +20,21 @@ const createTodo = (params) => ({
   }
 })
 
-const updateTodo = (id, params) => ({
+const update = (params) => ({
   [CALL_API]: {
     types: [ TODO_REQUEST, TODO_UPDATE_SUCCESS, TODO_FAILURE ],
-    endpoint: `todos/${id}`,
+    endpoint: `todos/${params.id}`,
     method: 'put',
     params,
   }
 })
 
-const removeTodo = (id) => ({
+const remove = (params) => ({
   [CALL_API]: {
     types: [ TODO_REQUEST, TODO_REMOVE_SUCCESS, TODO_FAILURE ],
-    endpoint: `todos/${id}`,
+    endpoint: `todos/${params.id}`,
     method: 'delete',
+    params,
   }
 })
 
@@ -47,11 +48,10 @@ const removeNewTodo = (todo) => ({
   todo,
 })
 
-export const handleChange = (todo) => {
-  const { isNew, id } = todo;
-  return isNew ? createTodo(todo) : updateTodo(id, todo);
-}
+export const handleChange = (params) => (
+  params.isNew ? create(params) : update(params)
+)
 
-export const handleRemove = (todo) => (
-  todo.isNew ? removeNewTodo(todo) : removeTodo(todo.id)
+export const handleRemove = (params) => (
+  params.isNew ? removeNewTodo(params) : remove(params)
 )

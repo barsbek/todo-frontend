@@ -1,0 +1,30 @@
+@value error-color, secondary-color, gray-primary-color from 'styles/colors.css';
+
+.message {
+  background-color: secondary-color;
+  border-style: solid;
+  border-color: error-color;
+  border-width: 0 0 0 4px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  min-width: 200px;
+  max-width: 300px;
+  align-items: center;
+  padding-left: 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  animation: fade-away 1s ease 3.5s forwards;
+}
+
+.message-text {
+  padding-right: 10px;
+}
+
+.message-button {
+  border-width: 0;
+  background-color: transparent;
+  color: error-color;
+  outline: none;
+  padding: 14px;
+}

@@ -4,22 +4,23 @@ import CSSModules from 'react-css-modules';
 
 import List from './components/List';
 import styles from './styles.css';
+import AddIcon from './icons/add.inline.svg';
 
 const ListsView = ({
   lists,
   addNewList,
   withUnsaved,
 }) => (
-  <div styleName="container">
+  <div>
     <div key="lists" styleName="lists">
       {lists.map(list => <List key={list.id} {...list} />)}
     </div>
     {!withUnsaved &&
       <button
         key="new-list"
-        styleName="new-list-button"
+        styleName="add-list-button"
         onClick={addNewList}>
-          +
+          <AddIcon styleName="add-icon"/>
       </button>
     }
   </div>

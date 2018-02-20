@@ -19,6 +19,7 @@ const TodoView = ({
       onChangeStop={onTitleChange}
     />
     <ButtonRemove
+      styleName="remove-button"
       className={isFetching && "button-loading"}
       onClick={onRemoveClick}
     />

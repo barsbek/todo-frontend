@@ -18,24 +18,30 @@ const ListView = ({
   addNewTodo,
   isFetching,
 }) => (
-  <article styleName="container">
-    <h3 styleName="header">
+  <article styleName="list">
+    <h3 styleName="list-header">
       <InputWithDelay
         value={title}
-        styleName="title"
+        styleName="list-title"
         onChangeStop={title => onTitleChange({ id, title })}
       />
       <ButtonRemove
+        styleName="list-remove-button"
         className={isFetching && "button-loading"}
-        onClick={() => onRemoveClick({ id })} />
+        onClick={() => onRemoveClick({ id })}
+      />
     </h3>
-    <Todos ids={todoIds} />
+    <div styleName="list-todos">
+      <Todos ids={todoIds} />
+    </div>
     <footer>
       {(id !== 'new') &&
-        <button styleName="todo-add-button" onClick={() => addNewTodo(id)}>
+        <button
+          styleName="todo-add-button"
+          onClick={() => addNewTodo(id)}>
           +
         </button>}
-      <span styleName="updated-at">
+      <span styleName="list-updated-at">
         Updated at {updated_at}
       </span>
     </footer>

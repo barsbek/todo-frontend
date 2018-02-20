@@ -1,49 +1,55 @@
-.container {
+@value gray-primary-color from 'styles/colors.css';
+
+.list {
   padding: 10px;
   margin-bottom: 10px;
   width: 33.333333%;
 }
 
 @media (max-width: 800px) {
-  .container {
+  .list {
     width: 50%;
   }
 }
 
 @media (max-width: 600px) {
-  .container {
+  .list {
     width: 100%;
   }
 }
 
-.header {
+.list-header {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.title {
+.list-title {
+  composes: field from 'styles/common.css';
   font-weight: 600;
   padding-right: 4px;
+  border-bottom-width: 3px;
+}
+
+.list-todos {
+  margin-bottom: 10px;
 }
 
 .todo-add-button {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #888;
+  margin-bottom: 10px;
 }
 
 .todo-add-button:hover {
   font-weight: 600;
-  color: #333;
 }
 
-.updated-at {
-  color: #666;
+.list-updated-at {
 }
 
-.remove-button {
-  width: 24px;
-  height: 24px;
+.list-remove-button {
+  width: 28px;
+  height: 28px;
 }

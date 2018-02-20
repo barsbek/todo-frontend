@@ -9,7 +9,7 @@ const ProfileMenuView = ({
   email,
   menuOpen
 }) => (
-  <div styleName="container" className={!menuOpen && "hidden"}>
+  <div styleName="profile-menu" className={!menuOpen && "hidden"}>
     <div styleName="name">{email}</div>
     <Link to="/signout">
       Sign out

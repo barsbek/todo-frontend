@@ -1,9 +1,10 @@
-.container {
+@value secondary-color from 'styles/colors.css';
+
+.profile-menu {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #fff;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: secondary-color;
   padding: 14px;
   min-width: 100px;
   z-index: 1;

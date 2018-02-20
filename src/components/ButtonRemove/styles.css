@@ -5,6 +5,7 @@
   border-width: 0;
   outline: none;
   transition: opacity .4s;
+  overflow: hidden;
 }
 
 .button:hover {
@@ -19,4 +20,16 @@
   max-width: 100%;
   max-height: 100%;
   fill: primary-color;
+  display: block;
+}
+
+:global(.button-loading) .icon {
+  animation-duration: 0.6s;
+  animation-name: rotating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+@keyframes rotating {
+  100% { transform: rotate(360deg) };
 }

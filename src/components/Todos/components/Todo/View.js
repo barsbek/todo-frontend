@@ -18,7 +18,10 @@ const TodoView = ({
       value={title}
       onChangeStop={onTitleChange}
     />
-    <ButtonRemove onClick={onRemoveClick} />
+    <ButtonRemove
+      className={isFetching && "button-loading"}
+      onClick={onRemoveClick}
+    />
   </div>
 )
 

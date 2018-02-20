@@ -26,6 +26,7 @@ const ListView = ({
         onChangeStop={title => onTitleChange({ id, title })}
       />
       <ButtonRemove
+        className={isFetching && "button-loading"}
         onClick={() => onRemoveClick({ id })} />
     </h3>
     <Todos ids={todoIds} />

@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { v4 } from 'uuid';
 import CSSModules from 'react-css-modules';
 
 import styles from './styles.css';

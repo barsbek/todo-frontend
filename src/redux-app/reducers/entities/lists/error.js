@@ -1,6 +1,5 @@
 import {
   LISTS_GET_FAILURE,
-  LIST_FAILURE,
 } from 'redux-app/constants';
 
 const error = (state = false, action) => {

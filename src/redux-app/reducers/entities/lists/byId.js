@@ -24,7 +24,7 @@ export const byId = (state = {}, action) => {
     return list.create(state, action);
   case LIST_UPDATE_SUCCESS:
     return list.update(state, action);
-  case LIST_REMOVE_NEW:
+  case LIST_REMOVE_SUCCESS:
     return list.destroy(state, action);
   case LIST_ADD_NEW:
     return list.addNew(state, action);
